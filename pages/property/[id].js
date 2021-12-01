@@ -9,9 +9,6 @@ import millify from 'millify';
 import { BASE_URL, fetchAPI } from '../../utils/fetchApi';
 import ImageScrollbar from '../../components/ImageScrollbar';
 
-
-
-
 export default function PropertyDetails({ propertyDetails }) {
     const { price, rentFrequency, title,
         rooms, baths, area,
@@ -24,7 +21,9 @@ export default function PropertyDetails({ propertyDetails }) {
             {photos && <ImageScrollbar data={photos} />}
             <Box w='full' p='6'>
                 <Flex paddingTop='2' alignItems='center'>
-                    <Box paddingRight='3' color='green.400'>{isVerified && <GoVerified />}</Box>
+                    <Box paddingRight='3' color='green.400'>
+                        {isVerified && <GoVerified />}
+                    </Box>
                     <Text fontWeight='bold' fontSize='lg'>
                         AED {price} {rentFrequency && `/${rentFrequency}`}
                     </Text>

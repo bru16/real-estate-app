@@ -6,7 +6,6 @@ import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
 
 const LeftArrow = () => {
     const { scrollPrev } = useContext(VisibilityContext);
-
     return (
         <Flex justifyContent='center' alignItems='center' marginRight='1'>
             <Icon
@@ -22,7 +21,6 @@ const LeftArrow = () => {
 
 const RightArrow = () => {
     const { scrollNext } = useContext(VisibilityContext);
-
     return (
         <Flex justifyContent='center' alignItems='center' marginLeft='1'>
             <Icon
@@ -39,11 +37,11 @@ const RightArrow = () => {
 export default function ImageSrollbar({ data }) {
     return (
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} style={{ overflow: 'hidden' }} >
-            {data.map((item) => (
-                <Box width='910px' itemId={item.id} key={item.id} overflow='hidden' p='1'>
+            {data.map((item, index) => (
+                <Box width='910px' key={index} itemId={item.id} overflow='hidden' p='1'>
                     <Image
                         placeholder="blur"
-                        alt="scrollImage"
+                        alt="propertyImage"
                         blurDataURL={item.url}
                         src={item.url}
                         width={1000}
